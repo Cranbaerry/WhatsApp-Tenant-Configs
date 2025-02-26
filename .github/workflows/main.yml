@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main  # Change this if you want to deploy from a different branch
+env:
+  # Define an environment variable for your component folder
+  COMPONENT: "com_dt_whatsapp_tenants_configs"
+  PLUGIN: "dt_whatsapp_tenants_configswhatsapptenantsconfigs"
 
 jobs:
   deploy:
@@ -14,14 +18,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy to FTP Server
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: Deploy Site
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: ${{ secrets.FTP_SERVER_DIRECTORY }}
+          local-dir: ./site/
+          server-dir: ${{ secrets.FTP_SERVER_DIRECTORY }}/components/${{ env.COMPONENT }}/
           protocol: ftp  # Change to "ftps" if needed
           exclude: |
             **/.git*
@@ -29,5 +33,36 @@ jobs:
             **/node_modules/**
             **/.gitignore
             **/.env
-            **/publish.bat*
-            **/dist
+
+      - name: Deploy Administrator
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./administrator/
+          server-dir: ${{ secrets.FTP_SERVER_DIRECTORY }}/administrator/components/${{ env.COMPONENT }}/
+          protocol: ftp  # Change to "ftps" if needed
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/**
+            **/.gitignore
+            **/.env
+
+      - name: Deploy Plugins
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./plugins/finder/${{ env.COMPONENT }}/
+          server-dir: ${{ secrets.FTP_SERVER_DIRECTORY }}/plugins/finder/${{ env.PLUGIN }}/
+          protocol: ftp  # Change to "ftps" if needed
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/**
+            **/.gitignore
+            **/.env
+

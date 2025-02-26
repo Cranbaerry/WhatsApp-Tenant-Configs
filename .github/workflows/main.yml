@@ -56,7 +56,7 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./plugins/finder/${{ env.COMPONENT }}/
+          local-dir: ./plugins/finder/${{ env.PLUGIN }}/
           server-dir: ${{ secrets.FTP_SERVER_DIRECTORY }}/plugins/finder/${{ env.PLUGIN }}/
           protocol: ftp  # Change to "ftps" if needed
           exclude: |

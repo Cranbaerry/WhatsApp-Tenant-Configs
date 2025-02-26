@@ -34,21 +34,21 @@ jobs:
             **/.gitignore
             **/.env
 
-      # - name: Deploy Administrator
-      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      #   with:
-      #     server: ${{ secrets.FTP_HOST }}
-      #     username: ${{ secrets.FTP_USERNAME }}
-      #     password: ${{ secrets.FTP_PASSWORD }}
-      #     local-dir: ./administrator/
-      #     server-dir: ${{ secrets.FTP_SERVER_DIRECTORY }}/administrator/components/${{ env.COMPONENT }}/
-      #     protocol: ftp  # Change to "ftps" if needed
-      #     exclude: |
-      #       **/.git*
-      #       **/.github*
-      #       **/node_modules/**
-      #       **/.gitignore
-      #       **/.env
+      - name: Deploy Administrator
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./administrator/
+          server-dir: ${{ secrets.FTP_SERVER_DIRECTORY }}/administrator/components/${{ env.COMPONENT }}/
+          protocol: ftp  # Change to "ftps" if needed
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/**
+            **/.gitignore
+            **/.env
 
       - name: Deploy Plugins
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

@@ -67,7 +67,8 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		var_dump('Config ID: ' . $config->id);
 		if (!empty($config) && $requested_config_id > 0 && $config->id != $requested_config_id) {
 			// throw new \Exception('Unauthorized access');
-			$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig', $config->id);		
+			$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig', $config->id);
+			var_dump('Config set');		
 		}
 		
 		// $requested_config_id = (int) $this->app->getUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id');

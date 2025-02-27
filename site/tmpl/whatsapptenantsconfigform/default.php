@@ -44,9 +44,9 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
 		</h3>
 	<?php else : ?>
 		<?php if (!empty($this->item->id)): ?>
-			<h1><?php echo Text::sprintf('COM_DT_WHATSAPP_TENANTS_CONFIGS_EDIT_ITEM_TITLE', $this->item->id); ?></h1>
+			<h1>Edit configurations</h1>
 		<?php else: ?>
-			<h1><?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_ADD_ITEM_TITLE'); ?></h1>
+			<h1>Add configurations</h1>
 		<?php endif; ?>
 
 		<form id="form-whatsapptenantsconfig"

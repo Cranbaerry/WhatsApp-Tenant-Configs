@@ -69,6 +69,7 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 
 		var_dump('Requested config id: ' . $requested_config_id);
 		var_dump('Config id: ' . $config->id);
+		var_dump($this->input);
 		
 		if (!empty($config) && $requested_config_id > 0 && $config->id != $requested_config_id) {
 			throw new \Exception('Unauthorized access');		

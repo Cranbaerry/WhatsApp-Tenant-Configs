@@ -66,9 +66,7 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		$user_id = $user->get('id');
 		$config = $model->getItemByUserId($user_id);
 
-		$data = Factory::getApplication()->getUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.data', array());
-		var_dump($data);
-
+		$requested_config_id = $previousId = (int) $this->app->getUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id');
 
 		var_dump('Requested config id: ' . $requested_config_id);
 		var_dump('Config id: ' . $config->id);

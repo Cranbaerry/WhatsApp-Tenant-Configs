@@ -67,8 +67,7 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 			switch($view) {
 				case 'whatsapptenantsconfigs':
 					$config = $model->getItemByUserId($user_id);
-					var_dump('config', $config);
-					if (empty($config)) {
+					if (!empty($config)) {
 						// Redirect to respective edit
 						$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&task=whatsapptenantsconfig.edit&id=' . $config->id);
 					}

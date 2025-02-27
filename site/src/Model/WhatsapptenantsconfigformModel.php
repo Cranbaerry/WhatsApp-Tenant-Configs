@@ -76,30 +76,7 @@ class WhatsapptenantsconfigformModel extends FormModel
         }
 
 		
-	
-        /**
-         * This method revises if the $id of the item belongs to the current user
-         * @param   integer     $id     The id of the item
-         * @return  boolean             true if the user is the owner of the row, false if not.
-         *
-         */
-        public function getItemByUserId($user_id){
-            try{
-                $user = Factory::getApplication()->getIdentity();
-                $db    = $this->getDbo();
-                
-                $query = $db->getQuery(true);
-                $query->select("id")
-                      ->from($db->quoteName('#__dt_whatsapp_tenants_configs'))
-                      ->where("user_id = " . $user_id);
 
-                $db->setQuery($query);
-
-                return $db->loadObject();
-            }catch(\Exception $exc){
-                return null;
-            }
-        }
 	/**
 	 * Method to auto-populate the model state.
 	 *

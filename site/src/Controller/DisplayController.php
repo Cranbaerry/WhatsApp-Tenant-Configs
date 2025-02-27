@@ -68,13 +68,13 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		if (!empty($user_id)) {
 			switch($view) {
 				case 'whatsapptenantsconfigs':
-				case 'whatsapptenantsconfigform':
 					if (!empty($config)) {
 						// Redirect to respective edit
 						$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&task=whatsapptenantsconfig.edit&id=' . $config->id);
 					}
 					break;
 				case 'whatsapptenantsconfig':
+				case 'whatsapptenantsconfigform':
 					$id = $this->input->getInt('id');
 					var_dump('current id: ' . $id);
 					var_dump('config id: ' . $config->id);

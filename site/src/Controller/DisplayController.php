@@ -81,6 +81,13 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 						$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfig&id=' . $config->id);
 					}					
 					break;
+
+				case 'whatsapptenantsconfigform':
+					$id = $this->input->getInt('id');
+					if ($id != $config->id) {
+						$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigform&id=' . $config->id);
+					}
+					break;
 			}
 		}
 

@@ -138,8 +138,7 @@ class WhatsapptenantsconfigformController extends FormController
 		// Validate user_id
 		$model = $this->getModel('whatsapptenantsconfig');
 		$config = $model->getItem($data['id']);
-		die(var_dump($config));
-		if ($config->id != Factory::getUser()->id)
+		if ($config->user_id != Factory::getUser()->id)
 		{
 			$this->setMessage('Not authorized to edit this configuration ' . var_dump($data), 'warning');
 			$this->setRedirect(Route::_('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs', false));

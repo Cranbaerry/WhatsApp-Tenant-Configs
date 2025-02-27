@@ -70,7 +70,7 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 				case 'whatsapptenantsconfigs':
 					if (!empty($config)) {
 						// Redirect to respective edit
-						$this->setRedirect('/whatsapp-configs/' . $config->id);
+						$this->setRedirect('whatsapp-configs/' . $config->id);
 					}
 					break;
 				case 'whatsapptenantsconfig':
@@ -86,7 +86,7 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 					var_dump('current id: ' . $id);
 					var_dump('config id: ' . $config->id);
 					if ($id != $config->id) {
-						$this->setRedirect(''. $config->id);
+						$this->setRedirect('whatsapp-configs/'. $config->id);
 					}
 					break;
 			}

@@ -137,6 +137,7 @@ class WhatsapptenantsconfigformController extends FormController
 
 		// Validate user_id
 		
+		die(var_dump($data));
 		if ($data['user_id'] != Factory::getUser()->id)
 		{
 			$this->setMessage('Not authorized to edit this configuration ' . var_dump($data), 'warning');

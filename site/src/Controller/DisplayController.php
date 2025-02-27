@@ -84,6 +84,8 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 
 				case 'whatsapptenantsconfigform':
 					$id = $this->input->getInt('id');
+					var_dump('current id: ' . $id);
+					var_dump('config id: ' . $config->id);
 					if ($id != $config->id) {
 						$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigform&id=' . $config->id);
 					}

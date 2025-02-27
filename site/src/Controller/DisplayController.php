@@ -63,18 +63,10 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		$user_id = $user->get('id');
 		$config = $model->getItemByUserId($user_id);
 		$requested_config_id = (int) $this->app->getUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id');
-		var_dump('Requested Config ID: ' . $requested_config_id);
-		var_dump('Config ID: ' . $config->id);
 		if (!empty($config) && $requested_config_id > 0 && $config->id != $requested_config_id) {
 			$requested_config_id = (int) $this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id', $config->id);
 			throw new \Exception('Unauthorized access');
 		}
-		
-		// $requested_config_id = (int) $this->app->getUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id');
-
-		// if (!empty($config) && $requested_config_id > 0 && $config->id != $requested_config_id) {
-		// 	throw new \Exception('Unauthorized access');		
-		// }
 
 		if (!empty($user_id)) {
 			switch($view) {

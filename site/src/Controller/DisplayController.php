@@ -57,7 +57,7 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		$view = $view == "featured" ? 'whatsapptenantsconfigs' : $view;
 		$this->input->set('view', $view);
 		
-		var_dump($view);
+		// var_dump($view);
 		// edit: tenant-config?task=whatsapptenantsconfig.edit&id={id}
 		// view index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfig&id=5
 		// Check if config exists
@@ -75,22 +75,6 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 						$this->setRedirect('whatsapp-configs?task=whatsapptenantsconfigform.edit&id=0');
 					}
 					break;
-				// case 'whatsapptenantsconfig':
-				// 	$id = $this->input->getInt('id');
-				// 	var_dump('current id: ' . $id);
-				// 	var_dump('config id: ' . $config->id);
-				// 	if ($id != $config->id) {
-				// 		$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfig&id=' . $config->id);
-				// 	}					
-				// 	break;
-				// case 'whatsapptenantsconfigform':
-				// 	$id = $this->input->getInt('id');
-				// 	var_dump('current id: ' . $id);
-				// 	var_dump('config id: ' . $config->id);
-				// 	if ($id != $config->id) {
-				// 		$this->setRedirect('whatsapp-configs/'. $config->id);
-				// 	}
-				// 	break;
 			}
 		}
 

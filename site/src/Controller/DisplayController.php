@@ -74,7 +74,6 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 					}
 					break;
 				case 'whatsapptenantsconfig':
-				case 'whatsapptenantsconfigform':
 					$id = $this->input->getInt('id');
 					var_dump('current id: ' . $id);
 					var_dump('config id: ' . $config->id);

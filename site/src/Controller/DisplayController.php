@@ -70,9 +70,9 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 				case 'whatsapptenantsconfigs':
 					if (!empty($config)) {
 						// Redirect to respective edit
-						$this->setRedirect('whatsapp-configs?task=whatsapptenantsconfigform.edit&id=0');
-					} else {
 						$this->setRedirect('whatsapp-configs?task=whatsapptenantsconfig.edit&id=' . $config->id);
+					} else {
+						$this->setRedirect('whatsapp-configs?task=whatsapptenantsconfigform.edit&id=0');
 					}
 					break;
 				// case 'whatsapptenantsconfig':

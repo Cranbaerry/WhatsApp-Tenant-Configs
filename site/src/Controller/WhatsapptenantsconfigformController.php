@@ -204,7 +204,7 @@ class WhatsapptenantsconfigformController extends FormController
 		$menu = Factory::getApplication()->getMenu();
 		$item = $menu->getActive();
 		//$url  = (empty($item->link) ? 'index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs' : $item->link);
-		$this->setRedirect('dashboard');
+		$this->setRedirect('/dashboard');
 	}
 
 	/**

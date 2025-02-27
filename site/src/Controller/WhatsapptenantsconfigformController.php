@@ -168,8 +168,8 @@ class WhatsapptenantsconfigformController extends FormController
 		
 		$menu = Factory::getApplication()->getMenu();
 		$item = $menu->getActive();
-		$url  = (empty($item->link) ? 'index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs' : $item->link);
-		$this->setRedirect(Route::_($url, false));
+		//$url  = (empty($item->link) ? 'index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs' : $item->link);
+		$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs');
 
 		// Flush the data from the session.
 		$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.data', null);

@@ -57,6 +57,25 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		$view = $view == "featured" ? 'whatsapptenantsconfigs' : $view;
 		$this->input->set('view', $view);
 		
+		var_dump($view);
+		// tenant-config?task=whatsapptenantsconfig.edit&id={id}
+		// Check if config exists
+		$model = $this->getModel('whatsapptenantsconfig');
+		$user  = Factory::getUser();
+		$user_id = $user->get('id');
+		if (!empty($user_id)) {
+			switch($view) {
+				case 'whatsapptenantsconfigs':
+					$config = $model->getItemByUserId($user_id);
+					if (empty($config)) {
+						// Redirect to respective edit
+						$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&task=whatsapptenantsconfig.edit&id=' . $config->id);
+					}
+					break;
+				case 'whatsapptenantsconfig':
+					break;
+			}
+		}
 
 		parent::display($cachable, $urlparams);
 		return $this;

@@ -67,28 +67,28 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		$config = $model->getItemByUserId($user_id);
 		if (!empty($user_id)) {
 			switch($view) {
-				case 'whatsapptenantsconfigs':
-					if (!empty($config)) {
-						// Redirect to respective edit
-						$this->setRedirect('whatsapp-configs/' . $config->id);
-					}
-					break;
-				case 'whatsapptenantsconfig':
-					$id = $this->input->getInt('id');
-					var_dump('current id: ' . $id);
-					var_dump('config id: ' . $config->id);
-					if ($id != $config->id) {
-						$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfig&id=' . $config->id);
-					}					
-					break;
-				case 'whatsapptenantsconfigform':
-					$id = $this->input->getInt('id');
-					var_dump('current id: ' . $id);
-					var_dump('config id: ' . $config->id);
-					if ($id != $config->id) {
-						$this->setRedirect('whatsapp-configs/'. $config->id);
-					}
-					break;
+				// case 'whatsapptenantsconfigs':
+				// 	if (!empty($config)) {
+				// 		// Redirect to respective edit
+				// 		$this->setRedirect('whatsapp-configs/' . $config->id);
+				// 	}
+				// 	break;
+				// case 'whatsapptenantsconfig':
+				// 	$id = $this->input->getInt('id');
+				// 	var_dump('current id: ' . $id);
+				// 	var_dump('config id: ' . $config->id);
+				// 	if ($id != $config->id) {
+				// 		$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfig&id=' . $config->id);
+				// 	}					
+				// 	break;
+				// case 'whatsapptenantsconfigform':
+				// 	$id = $this->input->getInt('id');
+				// 	var_dump('current id: ' . $id);
+				// 	var_dump('config id: ' . $config->id);
+				// 	if ($id != $config->id) {
+				// 		$this->setRedirect('whatsapp-configs/'. $config->id);
+				// 	}
+				// 	break;
 			}
 		}
 

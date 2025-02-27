@@ -57,21 +57,15 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		$view = $view == "featured" ? 'whatsapptenantsconfigs' : $view;
 		$this->input->set('view', $view);
 		
-		// var_dump($view);
-		// edit: tenant-config?task=whatsapptenantsconfig.edit&id={id}
-		// view index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfig&id=5
 		// Check if config exists
 		$model = $this->getModel('whatsapptenantsconfig');
 		$user  = Factory::getUser();
 		$user_id = $user->get('id');
 		$config = $model->getItemByUserId($user_id);
-
 		$requested_config_id = (int) $this->app->getUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id');
 
-		// var_dump('Requested config id: ' . $requested_config_id);
-		// var_dump('Config id: ' . $config->id);
-		
 		if (!empty($config) && $requested_config_id > 0 && $config->id != $requested_config_id) {
+			$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig', 0);
 			throw new \Exception('Unauthorized access');		
 		}
 

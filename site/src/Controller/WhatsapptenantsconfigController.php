@@ -165,56 +165,56 @@ class WhatsapptenantsconfigController extends BaseController
 		}
 	}
 
-	/**
-	 * Remove data
-	 *
-	 * @return void
-	 *
-	 * @throws Exception
-	 */
-	public function remove()
-	{
-		// Checking if the user can remove object
-		$user = $this->app->getIdentity();
+	// /**
+	//  * Remove data
+	//  *
+	//  * @return void
+	//  *
+	//  * @throws Exception
+	//  */
+	// public function remove()
+	// {
+	// 	// Checking if the user can remove object
+	// 	$user = $this->app->getIdentity();
 
-		if ($user->authorise('core.delete', 'com_dt_whatsapp_tenants_configs'))
-		{
-			$model = $this->getModel('Whatsapptenantsconfig', 'Site');
+	// 	if ($user->authorise('core.delete', 'com_dt_whatsapp_tenants_configs'))
+	// 	{
+	// 		$model = $this->getModel('Whatsapptenantsconfig', 'Site');
 
-			// Get the user data.
-			$id = $this->input->getInt('id', 0);
+	// 		// Get the user data.
+	// 		$id = $this->input->getInt('id', 0);
 
-			// Attempt to save the data.
-			$return = $model->delete($id);
+	// 		// Attempt to save the data.
+	// 		$return = $model->delete($id);
 
-			// Check for errors.
-			if ($return === false)
-			{
-				$this->setMessage(Text::sprintf('Delete failed', $model->getError()), 'warning');
-			}
-			else
-			{
-				// Check in the profile.
-				if ($return)
-				{
-					$model->checkin($return);
-				}
+	// 		// Check for errors.
+	// 		if ($return === false)
+	// 		{
+	// 			$this->setMessage(Text::sprintf('Delete failed', $model->getError()), 'warning');
+	// 		}
+	// 		else
+	// 		{
+	// 			// Check in the profile.
+	// 			if ($return)
+	// 			{
+	// 				$model->checkin($return);
+	// 			}
 
-				$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id', null);
-				$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.data', null);
+	// 			$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id', null);
+	// 			$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.data', null);
 
-				$this->app->enqueueMessage(Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_ITEM_DELETED_SUCCESSFULLY'), 'success');
-				$this->app->redirect(Route::_('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs', false));
-			}
+	// 			$this->app->enqueueMessage(Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_ITEM_DELETED_SUCCESSFULLY'), 'success');
+	// 			$this->app->redirect(Route::_('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs', false));
+	// 		}
 
-			// Redirect to the list screen.
-			$menu = Factory::getApplication()->getMenu();
-			$item = $menu->getActive();
-			$this->setRedirect(Route::_($item->link, false));
-		}
-		else
-		{
-			throw new \Exception(500);
-		}
-	}
+	// 		// Redirect to the list screen.
+	// 		$menu = Factory::getApplication()->getMenu();
+	// 		$item = $menu->getActive();
+	// 		$this->setRedirect(Route::_($item->link, false));
+	// 	}
+	// 	else
+	// 	{
+	// 		throw new \Exception(500);
+	// 	}
+	// }
 }

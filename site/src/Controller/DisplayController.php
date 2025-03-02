@@ -57,6 +57,34 @@ class DisplayController extends \Joomla\CMS\MVC\Controller\BaseController
 		$view = $view == "featured" ? 'whatsapptenantsconfigs' : $view;
 		$this->input->set('view', $view);
 		
+		// Check if config exists
+		$model = $this->getModel('whatsapptenantsconfig');
+		$user  = Factory::getUser();
+		$user_id = $user->get('id');
+		$config = $model->getItemByUserId($user_id);
+		$requested_config_id = (int) $this->app->getUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id');
+		if (!empty($config) && $requested_config_id > 0 && $config->id != $requested_config_id) {
+			$requested_config_id = (int) $this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.id', $config->id);
+			throw new \Exception('Unauthorized access');
+		}
+
+		if (!empty($user_id)) {
+			switch($view) {
+				case 'whatsapptenantsconfigs':
+					if (!empty($config)) {
+						// Redirect to respective edit
+						$this->setRedirect('whatsapp-configs?task=whatsapptenantsconfig.edit&id=' . $config->id);
+					} else {
+						$this->setRedirect('whatsapp-configs?task=whatsapptenantsconfigform.edit&id=0');
+					}
+					break;
+				case 'whatsapptenantsconfig':
+					if (empty($config)) {
+						$this->setRedirect('whatsapp-configs?task=whatsapptenantsconfigform.edit&id=0');
+					}
+					break;
+			}
+		}
 
 		parent::display($cachable, $urlparams);
 		return $this;

@@ -48,6 +48,7 @@ class WhatsapptenantsconfigsModel extends ListModel
 				'created_by', 'a.created_by',
 				'modified_by', 'a.modified_by',
 				'callback_url', 'a.callback_url',
+				'forward_url', 'a.forward_url',
 				'app_id', 'a.app_id',
 				'token', 'a.token',
 				'phone_number', 'a.phone_number',
@@ -191,7 +192,7 @@ class WhatsapptenantsconfigsModel extends ListModel
 				else
 				{
 					$search = $db->Quote('%' . $db->escape($search, true) . '%');
-					$query->where('( a.callback_url LIKE ' . $search . '  OR  a.app_id LIKE ' . $search . '  OR  a.phone_number LIKE ' . $search . ' )');
+					$query->where('( a.callback_url LIKE ' . $search . '  OR  a.forward_url LIKE ' . $search . '  OR  a.app_id LIKE ' . $search . '  OR  a.phone_number LIKE ' . $search . ' )');
 				}
 			}
 			

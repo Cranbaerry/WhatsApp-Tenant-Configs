@@ -76,6 +76,9 @@ if (!empty($saveOrder))
 							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_CALLBACK_URL', 'a.callback_url', $listDirn, $listOrder); ?>
 						</th>
 						<th class='left'>
+							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_FORWARD_URL', 'a.forward_url', $listDirn, $listOrder); ?>
+						</th>
+						<th class='left'>
 							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_APP_ID', 'a.app_id', $listDirn, $listOrder); ?>
 						</th>
 						<th class='left'>
@@ -155,11 +158,14 @@ if (!empty($saveOrder))
 								<?php endif; ?>
 								<?php if ($canEdit) : ?>
 									<a href="<?php echo Route::_('index.php?option=com_dt_whatsapp_tenants_configs&task=whatsapptenantsconfig.edit&id='.(int) $item->id); ?>">
-									<?php echo $this->escape($item->app_id); ?>
+									<?php echo $this->escape($item->forward_url); ?>
 									</a>
 								<?php else : ?>
-												<?php echo $this->escape($item->app_id); ?>
+												<?php echo $this->escape($item->forward_url); ?>
 								<?php endif; ?>
+							</td>
+							<td>
+								<?php echo $item->app_id; ?>
 							</td>
 							<td>
 								<?php echo $item->token; ?>

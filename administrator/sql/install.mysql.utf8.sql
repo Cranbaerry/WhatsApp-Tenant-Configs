@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `#__dt_whatsapp_tenants_configs` (
 `created_by` INT(11)  NULL  DEFAULT 0,
 `modified_by` INT(11)  NULL  DEFAULT 0,
 `callback_url` VARCHAR(255)  NOT NULL ,
+`forward_url` VARCHAR(255)  NOT NULL ,
 `app_id` VARCHAR(255)  NOT NULL ,
 `token` VARCHAR(255)  NOT NULL ,
 `phone_number` VARCHAR(255)  NOT NULL ,
@@ -20,6 +21,8 @@ PRIMARY KEY (`id`)
 ) DEFAULT COLLATE=utf8mb4_unicode_ci;
 
 CREATE INDEX `#__dt_whatsapp_tenants_configs_callback_url` ON `#__dt_whatsapp_tenants_configs`(`callback_url`);
+
+CREATE INDEX `#__dt_whatsapp_tenants_configs_forward_url` ON `#__dt_whatsapp_tenants_configs`(`forward_url`);
 
 CREATE INDEX `#__dt_whatsapp_tenants_configs_token` ON `#__dt_whatsapp_tenants_configs`(`token`);
 

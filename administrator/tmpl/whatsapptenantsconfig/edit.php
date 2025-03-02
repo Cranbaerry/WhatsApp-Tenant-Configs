@@ -34,6 +34,7 @@ HTMLHelper::_('bootstrap.tooltip');
 			<fieldset class="adminform">
 				<legend><?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FIELDSET_WHATSAPPTENANTSCONFIG'); ?></legend>
 				<?php echo $this->form->renderField('callback_url'); ?>
+				<?php echo $this->form->renderField('forward_url'); ?>
 				<?php echo $this->form->renderField('app_id'); ?>
 				<?php echo $this->form->renderField('token'); ?>
 				<?php echo $this->form->renderField('phone_number'); ?>

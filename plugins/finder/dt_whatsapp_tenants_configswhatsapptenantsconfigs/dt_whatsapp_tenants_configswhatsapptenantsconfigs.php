@@ -199,7 +199,7 @@ class PlgFinderDt_whatsapp_tenants_configswhatsapptenantsconfigs extends Adapter
 
 		// Check if we can use the supplied SQL query.
 		$query = $query instanceof DatabaseQuery ? $query : $db->getQuery(true)
-		->select('a.id, a.app_id AS title, a.app_id AS summary, a.state AS state, 1 AS access');
+		->select('a.id, a.forward_url AS title, a.forward_url AS summary, a.state AS state, 1 AS access');
 
 
 		$query->from($this->table . ' as a');

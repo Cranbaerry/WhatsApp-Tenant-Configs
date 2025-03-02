@@ -63,6 +63,10 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 					</th>
 
 					<th class=''>
+						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_FORWARD_URL', 'a.forward_url', $listDirn, $listOrder); ?>
+					</th>
+
+					<th class=''>
 						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_APP_ID', 'a.app_id', $listDirn, $listOrder); ?>
 					</th>
 
@@ -127,7 +131,10 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 							<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->uEditor, $item->checked_out_time, 'whatsapptenantsconfig.', false); ?></a>
 						<?php endif; ?>
 						<a href="<?php echo Route::_('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfig&id='.(int) $item->id); ?>">
-							<?php echo $this->escape($item->app_id); ?></a>
+							<?php echo $this->escape($item->forward_url); ?></a>
+					</td>
+					<td>
+						<?php echo $item->app_id; ?>
 					</td>
 					<td>
 						<?php echo $item->token; ?>

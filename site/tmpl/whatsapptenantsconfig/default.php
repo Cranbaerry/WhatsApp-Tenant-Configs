@@ -41,6 +41,11 @@ if (!$canEdit && Factory::getApplication()->getIdentity()->authorise('core.edit.
 		</tr>
 
 		<tr>
+			<th><?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FORM_LBL_WHATSAPPTENANTSCONFIG_FORWARD_URL'); ?></th>
+			<td><?php echo $this->item->forward_url; ?></td>
+		</tr>
+
+		<tr>
 			<th><?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FORM_LBL_WHATSAPPTENANTSCONFIG_APP_ID'); ?></th>
 			<td><?php echo $this->item->app_id; ?></td>
 		</tr>

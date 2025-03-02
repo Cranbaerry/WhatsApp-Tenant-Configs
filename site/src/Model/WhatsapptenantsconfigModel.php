@@ -77,6 +77,24 @@ class WhatsapptenantsconfigModel extends ItemModel
             }
         }
 
+
+		public function getItemByUserId($user_id){
+            try{
+                $user = Factory::getApplication()->getIdentity();
+                $db    = $this->getDbo();
+                
+                $query = $db->getQuery(true);
+                $query->select("*")
+                      ->from($db->quoteName('#__dt_whatsapp_tenants_configs'))
+                      ->where("user_id = " . $user_id);
+
+                $db->setQuery($query);
+
+                return $db->loadObject();
+            }catch(\Exception $exc){
+                return null;
+            }
+        }
 	/**
 	 * Method to auto-populate the model state.
 	 *

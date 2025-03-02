@@ -84,7 +84,7 @@ class WhatsapptenantsconfigModel extends ItemModel
                 $db    = $this->getDbo();
                 
                 $query = $db->getQuery(true);
-                $query->select("id")
+                $query->select("*")
                       ->from($db->quoteName('#__dt_whatsapp_tenants_configs'))
                       ->where("user_id = " . $user_id);
 

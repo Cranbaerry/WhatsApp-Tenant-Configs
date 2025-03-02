@@ -121,6 +121,9 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
             document.execCommand("copy");
             // Optionally, add user feedback here (e.g., a tooltip or alert)
         });
+
+        // Increase maxlength of jform_token
+        document.getElementById('jform_token').setAttribute('maxlength', '1000');
         </script>
     <?php endif; ?>
 </div>

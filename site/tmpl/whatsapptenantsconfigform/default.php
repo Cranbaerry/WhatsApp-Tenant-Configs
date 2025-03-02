@@ -71,7 +71,7 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
                     <span class="star" aria-hidden="true">&nbsp;*</span>
                 </label>
                 <div class="input-group">
-                    <input type="text" name="jform[callback_url]" id="jform_callback_url" value="<?php echo $callbackUrl; ?>" class="form-control required valid form-control-success" placeholder="Callback URL" required="" aria-required="true" autocomplete="off" aria-invalid="false" readonly>
+                    <input type="text" name="jform[callback_url]" id="jform_callback_url" value="<?php echo $callbackUrl; ?>" class="form-control required valid form-control-success" placeholder="Callback URL" required="" aria-required="true" autocomplete="off" aria-invalid="false" readonly style="background-color: #e9ecef;">
                     <div class="input-group-append">
                         <button type="button" class="btn btn-secondary" id="copyCallbackUrl" title="<?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_COPY_CALLBACK_URL', true); ?>">
                             <span class="fas fa-copy" aria-hidden="true"></span>

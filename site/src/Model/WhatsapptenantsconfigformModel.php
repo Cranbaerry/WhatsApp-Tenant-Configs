@@ -75,8 +75,6 @@ class WhatsapptenantsconfigformModel extends FormModel
             }
         }
 
-		
-
 	/**
 	 * Method to auto-populate the model state.
 	 *

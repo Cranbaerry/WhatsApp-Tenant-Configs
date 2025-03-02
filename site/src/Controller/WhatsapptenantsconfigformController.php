@@ -135,16 +135,6 @@ class WhatsapptenantsconfigformController extends FormController
 			$this->redirect();
 		}
 
-		// Validate user_id
-		$config_model = $this->getModel('whatsapptenantsconfig');
-		$config = $config_model->getItem($data['id']);
-		if ($config->id !== NULL && $config->user_id != Factory::getUser()->id)
-		{
-			$this->setMessage('Not authorized to edit this configuration ' . var_dump($data), 'warning');
-			$this->setRedirect(Route::_('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs', false));
-			$this->redirect();
-		}
-
 		// Attempt to save the data.
 		$return = $model->save($data);
 
@@ -178,8 +168,8 @@ class WhatsapptenantsconfigformController extends FormController
 		
 		$menu = Factory::getApplication()->getMenu();
 		$item = $menu->getActive();
-		//$url  = (empty($item->link) ? 'index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs' : $item->link);
-		$this->setRedirect('index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs');
+		$url  = (empty($item->link) ? 'index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs' : $item->link);
+		$this->setRedirect(Route::_($url, false));
 
 		// Flush the data from the session.
 		$this->app->setUserState('com_dt_whatsapp_tenants_configs.edit.whatsapptenantsconfig.data', null);
@@ -213,8 +203,8 @@ class WhatsapptenantsconfigformController extends FormController
 
 		$menu = Factory::getApplication()->getMenu();
 		$item = $menu->getActive();
-		//$url  = (empty($item->link) ? 'index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs' : $item->link);
-		$this->setRedirect('/dashboard');
+		$url  = (empty($item->link) ? 'index.php?option=com_dt_whatsapp_tenants_configs&view=whatsapptenantsconfigs' : $item->link);
+		$this->setRedirect(Route::_($url, false));
 	}
 
 	/**

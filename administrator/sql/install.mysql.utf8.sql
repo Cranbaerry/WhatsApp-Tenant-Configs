@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `#__dt_whatsapp_tenants_configs` (
 `token` VARCHAR(255)  NOT NULL ,
 `phone_number` VARCHAR(255)  NOT NULL ,
 `user_id` INT(11)  NOT NULL ,
+`business_account_id` VARCHAR(255)  NOT NULL ,
 PRIMARY KEY (`id`)
 ,KEY `idx_state` (`state`)
 ,KEY `idx_checked_out` (`checked_out`)
@@ -29,4 +30,6 @@ CREATE INDEX `#__dt_whatsapp_tenants_configs_token` ON `#__dt_whatsapp_tenants_c
 CREATE INDEX `#__dt_whatsapp_tenants_configs_phone_number` ON `#__dt_whatsapp_tenants_configs`(`phone_number`);
 
 CREATE INDEX `#__dt_whatsapp_tenants_configs_user_id` ON `#__dt_whatsapp_tenants_configs`(`user_id`);
+
+CREATE INDEX `#__dt_whatsapp_tenants_configs_business_account_id` ON `#__dt_whatsapp_tenants_configs`(`business_account_id`);
 

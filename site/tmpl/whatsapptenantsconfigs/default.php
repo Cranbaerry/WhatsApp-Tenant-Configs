@@ -71,6 +71,10 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 					</th>
 
 					<th class=''>
+						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_BUSINESS_ACCOUNT_ID', 'a.business_account_id', $listDirn, $listOrder); ?>
+					</th>
+
+					<th class=''>
 						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_TOKEN', 'a.token', $listDirn, $listOrder); ?>
 					</th>
 
@@ -135,6 +139,9 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 					</td>
 					<td>
 						<?php echo $item->app_id; ?>
+					</td>
+					<td>
+						<?php echo $item->business_account_id; ?>
 					</td>
 					<td>
 						<?php echo $item->token; ?>

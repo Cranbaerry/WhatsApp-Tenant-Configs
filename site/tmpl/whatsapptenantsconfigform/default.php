@@ -62,13 +62,16 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
             <?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'whatsapptenantsconfig', Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_TAB_WHATSAPPTENANTSCONFIG', true)); ?>
 
             <?php 
-                // Build the callback URL based on Joomla's root URL, the ajax API path, and the current user id.
-                $callbackUrl = Uri::root() . 'plugins/ajax/api/sample/' . $user->id;
+                // Build the callback URL using Joomla's root URL, the ajax API path, and the current user id.
+                $callbackUrl = Uri::root() . 'plugins/ajax/api/' . $user->id;
             ?>
-            <div class="form-group">
-                <label for="callback_url"><?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FIELD_CALLBACK_URL_LABEL', true); ?></label>
+            <div class="control-group has-success">
+                <label id="jform_callback_url-lbl" for="jform_callback_url" class="required form-label">
+                    <?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FIELD_CALLBACK_URL_LABEL', true); ?>
+                    <span class="star" aria-hidden="true">&nbsp;*</span>
+                </label>
                 <div class="input-group">
-                    <input type="text" id="callback_url" name="jform[callback_url]" class="form-control" readonly value="<?php echo $callbackUrl; ?>" />
+                    <input type="text" name="jform[callback_url]" id="jform_callback_url" value="<?php echo $callbackUrl; ?>" class="form-control required valid form-control-success" placeholder="Callback URL" required="" aria-required="true" autocomplete="off" aria-invalid="false" readonly>
                     <div class="input-group-append">
                         <button type="button" class="btn btn-secondary" id="copyCallbackUrl" title="<?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_COPY_CALLBACK_URL', true); ?>">
                             <span class="fas fa-copy" aria-hidden="true"></span>
@@ -110,11 +113,11 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
         <script>
         // Copy callback URL to clipboard when the button is clicked
         document.getElementById('copyCallbackUrl').addEventListener('click', function() {
-            var copyText = document.getElementById('callback_url');
+            var copyText = document.getElementById('jform_callback_url');
             copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+            copyText.setSelectionRange(0, 99999); // For mobile devices
             document.execCommand("copy");
-            // Optionally, you can add user feedback here (e.g., a tooltip or alert)
+            // Optionally, add user feedback here (e.g., a tooltip or alert)
         });
         </script>
     <?php endif; ?>

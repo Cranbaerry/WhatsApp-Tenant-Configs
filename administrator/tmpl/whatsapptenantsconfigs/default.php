@@ -82,6 +82,9 @@ if (!empty($saveOrder))
 							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_APP_ID', 'a.app_id', $listDirn, $listOrder); ?>
 						</th>
 						<th class='left'>
+							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_BUSINESS_ACCOUNT_ID', 'a.business_account_id', $listDirn, $listOrder); ?>
+						</th>
+						<th class='left'>
 							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_TOKEN', 'a.token', $listDirn, $listOrder); ?>
 						</th>
 						<th class='left'>
@@ -166,6 +169,9 @@ if (!empty($saveOrder))
 							</td>
 							<td>
 								<?php echo $item->app_id; ?>
+							</td>
+							<td>
+								<?php echo $item->business_account_id; ?>
 							</td>
 							<td>
 								<?php echo $item->token; ?>

@@ -14,5 +14,6 @@
     <field field_name="checked_out_time" field_type="DATETIME" description=""/>
     <field field_name="created_by" field_type="INT" field_length="11" index="index" description=""/>
     <field field_name="modified_by" field_type="INT" field_length="11" index="index" description=""/>
+    <field field_name="business_account_id" field_type="VARCHAR" field_length="255" description=""/>
   </table>
 </component>

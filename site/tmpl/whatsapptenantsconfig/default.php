@@ -64,6 +64,11 @@ if (!$canEdit && Factory::getApplication()->getIdentity()->authorise('core.edit.
 			<th><?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FORM_LBL_WHATSAPPTENANTSCONFIG_USER_ID'); ?></th>
 			<td><?php echo $this->item->user_id_name; ?></td>
 		</tr>
+		
+		<tr>
+			<th><?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FORM_LBL_WHATSAPPTENANTSCONFIG_BUSINESS_ACCOUNT_ID'); ?></th>
+			<td><?php echo $this->item->business_account_id; ?></td>
+		</tr>
 
 	</table>
 

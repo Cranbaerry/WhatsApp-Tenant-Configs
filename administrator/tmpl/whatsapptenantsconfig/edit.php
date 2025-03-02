@@ -39,6 +39,7 @@ HTMLHelper::_('bootstrap.tooltip');
 				<?php echo $this->form->renderField('token'); ?>
 				<?php echo $this->form->renderField('phone_number'); ?>
 				<?php echo $this->form->renderField('user_id'); ?>
+				<?php echo $this->form->renderField('business_account_id'); ?>
 			</fieldset>
 		</div>
 	</div>

@@ -67,7 +67,7 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
             ?>
             <div class="control-group has-success">
                 <label id="jform_callback_url-lbl" for="jform_callback_url" class="required form-label">
-                    <?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FIELD_CALLBACK_URL_LABEL', true); ?>
+                    <?php echo Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_FORM_LBL_WHATSAPPTENANTSCONFIG_CALLBACK_URL', true); ?>
                     <span class="star" aria-hidden="true">&nbsp;*</span>
                 </label>
                 <div class="input-group">

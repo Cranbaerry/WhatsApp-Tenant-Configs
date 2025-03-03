@@ -45,7 +45,7 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
         <?php if (!empty($this->item->id)): ?>
             <h1>Edit configurations</h1>
         <?php else: ?>
-            <h1>Add configurations/h1>
+            <h1>Add configurations</h1>
         <?php endif; ?>
 
         <form id="form-whatsapptenantsconfig"
@@ -84,6 +84,7 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
             <?php echo $this->form->renderField('app_id'); ?>
             <?php echo $this->form->renderField('phone_number_id'); ?>
             <?php echo $this->form->renderField('business_account_id'); ?>
+            
             <?php echo $this->form->renderField('token'); ?>
             <?php echo $this->form->renderField('phone_number'); ?>
             <?php echo $this->form->renderField('user_id'); ?>

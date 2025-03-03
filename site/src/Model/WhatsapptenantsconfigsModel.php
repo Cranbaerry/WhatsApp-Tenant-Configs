@@ -50,10 +50,11 @@ class WhatsapptenantsconfigsModel extends ListModel
 				'callback_url', 'a.callback_url',
 				'forward_url', 'a.forward_url',
 				'app_id', 'a.app_id',
+				'phone_number_id', 'a.phone_number_id',
+				'business_account_id', 'a.business_account_id',
 				'token', 'a.token',
 				'phone_number', 'a.phone_number',
 				'user_id', 'a.user_id',
-				'business_account_id', 'a.business_account_id',
 			);
 		}
 
@@ -193,7 +194,7 @@ class WhatsapptenantsconfigsModel extends ListModel
 				else
 				{
 					$search = $db->Quote('%' . $db->escape($search, true) . '%');
-					$query->where('( a.callback_url LIKE ' . $search . '  OR  a.forward_url LIKE ' . $search . '  OR  a.app_id LIKE ' . $search . '  OR  a.phone_number LIKE ' . $search . '  OR  a.business_account_id LIKE ' . $search . ' )');
+					$query->where('( a.callback_url LIKE ' . $search . '  OR  a.forward_url LIKE ' . $search . '  OR  a.app_id LIKE ' . $search . '  OR  a.phone_number_id LIKE ' . $search . '  OR  a.business_account_id LIKE ' . $search . '  OR  a.phone_number LIKE ' . $search . ' )');
 				}
 			}
 			

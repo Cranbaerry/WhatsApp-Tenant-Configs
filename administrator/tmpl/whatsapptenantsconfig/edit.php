@@ -36,10 +36,11 @@ HTMLHelper::_('bootstrap.tooltip');
 				<?php echo $this->form->renderField('callback_url'); ?>
 				<?php echo $this->form->renderField('forward_url'); ?>
 				<?php echo $this->form->renderField('app_id'); ?>
+				<?php echo $this->form->renderField('phone_number_id'); ?>
+				<?php echo $this->form->renderField('business_account_id'); ?>
 				<?php echo $this->form->renderField('token'); ?>
 				<?php echo $this->form->renderField('phone_number'); ?>
 				<?php echo $this->form->renderField('user_id'); ?>
-				<?php echo $this->form->renderField('business_account_id'); ?>
 			</fieldset>
 		</div>
 	</div>

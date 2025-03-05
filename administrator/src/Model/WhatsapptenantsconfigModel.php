@@ -175,6 +175,21 @@ class WhatsapptenantsconfigModel extends AdminModel
 
 			$data = $this->item;
 			
+
+			// Support for multiple or not foreign key field: dreamztrack_endpoint
+			$array = array();
+
+			foreach ((array) $data->dreamztrack_endpoint as $value)
+			{
+				if (!is_array($value))
+				{
+					$array[] = $value;
+				}
+			}
+			if(!empty($array)){
+
+			$data->dreamztrack_endpoint = $array;
+			}
 		}
 
 		return $data;

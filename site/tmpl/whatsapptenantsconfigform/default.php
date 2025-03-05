@@ -88,6 +88,9 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
             <?php echo $this->form->renderField('token'); ?>
             <?php echo $this->form->renderField('phone_number'); ?>
             <?php echo $this->form->renderField('user_id'); ?>
+            <?php echo $this->form->renderField('dreamztrack_endpoint'); ?>
+            <?php echo $this->form->renderField('dreamztrack_branch'); ?>
+            <?php echo $this->form->renderField('dreamztrack_key'); ?>
 
             <?php echo HTMLHelper::_('uitab.endTab'); ?>
 

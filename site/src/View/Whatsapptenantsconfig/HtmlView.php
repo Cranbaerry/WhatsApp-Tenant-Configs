@@ -51,7 +51,7 @@ class HtmlView extends BaseHtmlView
 
 		if (!empty($this->item))
 		{
-			$this->form = $this->get('Form');
+			
 		}
 
 		// Check for errors.

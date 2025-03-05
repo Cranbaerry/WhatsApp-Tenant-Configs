@@ -15,6 +15,9 @@ CREATE TABLE IF NOT EXISTS `#__dt_whatsapp_tenants_configs` (
 `token` VARCHAR(255)  NOT NULL ,
 `phone_number` VARCHAR(255)  NOT NULL ,
 `user_id` INT(11)  NOT NULL ,
+`dreamztrack_endpoint` VARCHAR(255)  NOT NULL  DEFAULT "PRODUCTION",
+`dreamztrack_branch` VARCHAR(255)  NOT NULL  DEFAULT "HQ Branch",
+`dreamztrack_key` VARCHAR(255)  NOT NULL ,
 PRIMARY KEY (`id`)
 ,KEY `idx_state` (`state`)
 ,KEY `idx_checked_out` (`checked_out`)

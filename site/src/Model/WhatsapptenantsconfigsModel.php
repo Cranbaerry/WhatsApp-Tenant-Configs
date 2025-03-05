@@ -55,6 +55,9 @@ class WhatsapptenantsconfigsModel extends ListModel
 				'token', 'a.token',
 				'phone_number', 'a.phone_number',
 				'user_id', 'a.user_id',
+				'dreamztrack_endpoint', 'a.dreamztrack_endpoint',
+				'dreamztrack_branch', 'a.dreamztrack_branch',
+				'dreamztrack_key', 'a.dreamztrack_key',
 			);
 		}
 
@@ -194,7 +197,7 @@ class WhatsapptenantsconfigsModel extends ListModel
 				else
 				{
 					$search = $db->Quote('%' . $db->escape($search, true) . '%');
-					$query->where('( a.callback_url LIKE ' . $search . '  OR  a.forward_url LIKE ' . $search . '  OR  a.app_id LIKE ' . $search . '  OR  a.phone_number_id LIKE ' . $search . '  OR  a.business_account_id LIKE ' . $search . '  OR  a.phone_number LIKE ' . $search . ' )');
+					$query->where('( a.callback_url LIKE ' . $search . '  OR  a.forward_url LIKE ' . $search . '  OR  a.app_id LIKE ' . $search . '  OR  a.phone_number_id LIKE ' . $search . '  OR  a.business_account_id LIKE ' . $search . '  OR  a.phone_number LIKE ' . $search . '  OR  a.dreamztrack_branch LIKE ' . $search . '  OR  a.dreamztrack_key LIKE ' . $search . ' )');
 				}
 			}
 			
@@ -205,6 +208,12 @@ class WhatsapptenantsconfigsModel extends ListModel
 		if ($filter_user_id)
 		{
 			$query->where("a.`user_id` = '" . $db->escape($filter_user_id) . "'");
+		}
+
+		// Filtering dreamztrack_endpoint
+		$filter_dreamztrack_endpoint = $this->state->get("filter.dreamztrack_endpoint");
+		if ($filter_dreamztrack_endpoint != '') {
+			$query->where("a.`dreamztrack_endpoint` = '".$db->escape($filter_dreamztrack_endpoint)."'");
 		}
 
 			
@@ -230,6 +239,14 @@ class WhatsapptenantsconfigsModel extends ListModel
 	{
 		$items = parent::getItems();
 		
+		foreach ($items as $item)
+		{
+
+				if (!empty($item->dreamztrack_endpoint))
+					{
+						$item->dreamztrack_endpoint = Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_ENDPOINT_OPTION_' . preg_replace('/[^A-Za-z0-9\_-]/', '',strtoupper(str_replace(' ', '_',$item->dreamztrack_endpoint))));
+					}
+		}
 
 		return $items;
 	}

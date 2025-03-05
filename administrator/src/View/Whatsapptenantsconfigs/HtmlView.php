@@ -156,7 +156,6 @@ class HtmlView extends BaseHtmlView
 	{
 		return array(
 			'a.`id`' => Text::_('JGRID_HEADING_ID'),
-			'a.`state`' => Text::_('JSTATUS'),
 			'a.`ordering`' => Text::_('JGRID_HEADING_ORDERING'),
 			'a.`callback_url`' => Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_CALLBACK_URL'),
 			'a.`forward_url`' => Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_FORWARD_URL'),
@@ -166,6 +165,9 @@ class HtmlView extends BaseHtmlView
 			'a.`token`' => Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_TOKEN'),
 			'a.`phone_number`' => Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_PHONE_NUMBER'),
 			'a.`user_id`' => Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_USER_ID'),
+			'a.`dreamztrack_endpoint`' => Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_ENDPOINT'),
+			'a.`dreamztrack_branch`' => Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_BRANCH'),
+			'a.`dreamztrack_key`' => Text::_('COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_KEY'),
 		);
 	}
 

@@ -134,6 +134,27 @@ class WhatsapptenantsconfigTable extends Table implements VersionableTableInterf
 			$array['user_id'] = Factory::getUser()->id;
 		}
 
+		// Support for multiple field: dreamztrack_endpoint
+		if (isset($array['dreamztrack_endpoint']))
+		{
+			if (is_array($array['dreamztrack_endpoint']))
+			{
+				$array['dreamztrack_endpoint'] = implode(',',$array['dreamztrack_endpoint']);
+			}
+			elseif (strpos($array['dreamztrack_endpoint'], ',') != false)
+			{
+				$array['dreamztrack_endpoint'] = explode(',',$array['dreamztrack_endpoint']);
+			}
+			elseif (strlen($array['dreamztrack_endpoint']) == 0)
+			{
+				$array['dreamztrack_endpoint'] = '';
+			}
+		}
+		else
+		{
+			$array['dreamztrack_endpoint'] = '';
+		}
+
 		if (isset($array['params']) && is_array($array['params']))
 		{
 			$registry = new Registry;

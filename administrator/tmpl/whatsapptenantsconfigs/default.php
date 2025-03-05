@@ -68,9 +68,6 @@ if (!empty($saveOrder))
 					<?php endif; ?>
 
 						
-					<th  scope="col" class="w-1 text-center">
-						<?php echo HTMLHelper::_('searchtools.sort', 'JSTATUS', 'a.state', $listDirn, $listOrder); ?>
-					</th>
 						
 						<th class='left'>
 							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_CALLBACK_URL', 'a.callback_url', $listDirn, $listOrder); ?>
@@ -95,6 +92,15 @@ if (!empty($saveOrder))
 						</th>
 						<th class='left'>
 							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_USER_ID', 'a.user_id', $listDirn, $listOrder); ?>
+						</th>
+						<th class='left'>
+							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_KEY', 'a.dreamztrack_key', $listDirn, $listOrder); ?>
+						</th>
+						<th class='left'>
+							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_BRANCH', 'a.dreamztrack_branch', $listDirn, $listOrder); ?>
+						</th>
+						<th class='left'>
+							<?php echo HTMLHelper::_('searchtools.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_ENDPOINT', 'a.dreamztrack_endpoint', $listDirn, $listOrder); ?>
 						</th>
 						
 					<th scope="col" class="w-3 d-none d-lg-table-cell" >
@@ -151,9 +157,6 @@ if (!empty($saveOrder))
 							<?php endif; ?>
 
 							
-							<td class="text-center">
-								<?php echo HTMLHelper::_('jgrid.published', $item->state, $i, 'whatsapptenantsconfigs.', $canChange, 'cb'); ?>
-							</td>
 							
 							<td>
 								<?php echo $item->callback_url; ?>
@@ -187,6 +190,15 @@ if (!empty($saveOrder))
 							</td>
 							<td>
 								<?php echo $item->user_id; ?>
+							</td>
+							<td>
+								<?php echo $item->dreamztrack_key; ?>
+							</td>
+							<td>
+								<?php echo $item->dreamztrack_branch; ?>
+							</td>
+							<td>
+								<?php echo $item->dreamztrack_endpoint; ?>
 							</td>
 							
 							<td class="d-none d-lg-table-cell">

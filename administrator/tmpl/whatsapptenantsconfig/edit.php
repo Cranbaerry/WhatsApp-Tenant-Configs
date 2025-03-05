@@ -41,6 +41,9 @@ HTMLHelper::_('bootstrap.tooltip');
 				<?php echo $this->form->renderField('token'); ?>
 				<?php echo $this->form->renderField('phone_number'); ?>
 				<?php echo $this->form->renderField('user_id'); ?>
+				<?php echo $this->form->renderField('dreamztrack_endpoint'); ?>
+				<?php echo $this->form->renderField('dreamztrack_branch'); ?>
+				<?php echo $this->form->renderField('dreamztrack_key'); ?>
 			</fieldset>
 		</div>
 	</div>

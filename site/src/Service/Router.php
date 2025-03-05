@@ -64,9 +64,6 @@ class Router extends RouterView
 			$ccWhatsapptenantsconfig = new RouterViewConfiguration('whatsapptenantsconfig');
 			$ccWhatsapptenantsconfig->setKey('id')->setParent($whatsapptenantsconfigs);
 			$this->registerView($ccWhatsapptenantsconfig);
-			$whatsapptenantsconfigform = new RouterViewConfiguration('whatsapptenantsconfigform');
-			$whatsapptenantsconfigform->setKey('id');
-			$this->registerView($whatsapptenantsconfigform);
 
 		parent::__construct($app, $menu);
 
@@ -89,18 +86,6 @@ class Router extends RouterView
 		{
 			return array((int) $id => $id);
 		}
-			/**
-			 * Method to get the segment(s) for an whatsapptenantsconfigform
-			 *
-			 * @param   string  $id     ID of the whatsapptenantsconfigform to retrieve the segments for
-			 * @param   array   $query  The request that is built right now
-			 *
-			 * @return  array|string  The segments of this item
-			 */
-			public function getWhatsapptenantsconfigformSegment($id, $query)
-			{
-				return $this->getWhatsapptenantsconfigSegment($id, $query);
-			}
 
 	
 		/**
@@ -115,18 +100,6 @@ class Router extends RouterView
 		{
 			return (int) $segment;
 		}
-			/**
-			 * Method to get the segment(s) for an whatsapptenantsconfigform
-			 *
-			 * @param   string  $segment  Segment of the whatsapptenantsconfigform to retrieve the ID for
-			 * @param   array   $query    The request that is parsed right now
-			 *
-			 * @return  mixed   The id of this item or false
-			 */
-			public function getWhatsapptenantsconfigformId($segment, $query)
-			{
-				return $this->getWhatsapptenantsconfigId($segment, $query);
-			}
 
 	/**
 	 * Method to get categories from cache

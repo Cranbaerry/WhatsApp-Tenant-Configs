@@ -54,10 +54,6 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_ID', 'a.id', $listDirn, $listOrder); ?>
 					</th>
 
-					<th >
-						<?php echo HTMLHelper::_('grid.sort', 'JPUBLISHED', 'a.state', $listDirn, $listOrder); ?>
-					</th>
-
 					<th class=''>
 						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_CALLBACK_URL', 'a.callback_url', $listDirn, $listOrder); ?>
 					</th>
@@ -73,7 +69,7 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 					<th class=''>
 						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_PHONE_NUMBER_ID', 'a.phone_number_id', $listDirn, $listOrder); ?>
 					</th>
-					
+
 					<th class=''>
 						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_BUSINESS_ACCOUNT_ID', 'a.business_account_id', $listDirn, $listOrder); ?>
 					</th>
@@ -88,6 +84,18 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 
 					<th class=''>
 						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_USER_ID', 'a.user_id', $listDirn, $listOrder); ?>
+					</th>
+
+					<th class=''>
+						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_KEY', 'a.dreamztrack_key', $listDirn, $listOrder); ?>
+					</th>
+
+					<th class=''>
+						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_BRANCH', 'a.dreamztrack_branch', $listDirn, $listOrder); ?>
+					</th>
+
+					<th class=''>
+						<?php echo HTMLHelper::_('grid.sort',  'COM_DT_WHATSAPP_TENANTS_CONFIGS_WHATSAPPTENANTSCONFIGS_DREAMZTRACK_ENDPOINT', 'a.dreamztrack_endpoint', $listDirn, $listOrder); ?>
 					</th>
 
 						<?php if ($canEdit || $canDelete): ?>
@@ -110,24 +118,11 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 			<tbody>
 			<?php foreach ($this->items as $i => $item) : ?>
 				<?php $canEdit = $user->authorise('core.edit', 'com_dt_whatsapp_tenants_configs'); ?>
-				<?php if (!$canEdit && $user->authorise('core.edit.own', 'com_dt_whatsapp_tenants_configs')): ?>
-				<?php $canEdit = Factory::getApplication()->getIdentity()->id == $item->created_by; ?>
-				<?php endif; ?>
-
+				
 				<tr class="row<?php echo $i % 2; ?>">
 					
 					<td>
 						<?php echo $item->id; ?>
-					</td>
-					<td>
-						<?php $class = ($canChange) ? 'active' : 'disabled'; ?>
-						<a class="btn btn-micro <?php echo $class; ?>" href="<?php echo ($canChange) ? Route::_('index.php?option=com_dt_whatsapp_tenants_configs&task=whatsapptenantsconfig.publish&id=' . $item->id . '&state=' . (($item->state + 1) % 2), false, 2) : '#'; ?>">
-						<?php if ($item->state == 1): ?>
-							<i class="icon-publish"></i>
-						<?php else: ?>
-							<i class="icon-unpublish"></i>
-						<?php endif; ?>
-						</a>
 					</td>
 					<td>
 						<?php echo $item->callback_url; ?>
@@ -162,16 +157,17 @@ $wa->useStyle('com_dt_whatsapp_tenants_configs.list');
 								<?php $user = $userFactory->loadUserById($item->user_id); ?>
 								<?php echo $user->name; ?>
 					</td>
+					<td>
+						<?php echo $item->dreamztrack_key; ?>
+					</td>
+					<td>
+						<?php echo $item->dreamztrack_branch; ?>
+					</td>
+					<td>
+						<?php echo $item->dreamztrack_endpoint; ?>
+					</td>
 					<?php if ($canEdit || $canDelete): ?>
 						<td class="center">
-							<?php $canCheckin = Factory::getApplication()->getIdentity()->authorise('core.manage', 'com_dt_whatsapp_tenants_configs.' . $item->id) || $item->checked_out == Factory::getApplication()->getIdentity()->id; ?>
-
-							<?php if($canEdit && $item->checked_out == 0): ?>
-								<a href="<?php echo Route::_('index.php?option=com_dt_whatsapp_tenants_configs&task=whatsapptenantsconfig.edit&id=' . $item->id, false, 2); ?>" class="btn btn-mini" type="button"><i class="icon-edit" ></i></a>
-							<?php endif; ?>
-							<?php if ($canDelete): ?>
-								<a href="<?php echo Route::_('index.php?option=com_dt_whatsapp_tenants_configs&task=whatsapptenantsconfigform.remove&id=' . $item->id, false, 2); ?>" class="btn btn-mini delete-button" type="button"><i class="icon-trash" ></i></a>
-							<?php endif; ?>
 						</td>
 					<?php endif; ?>
 

@@ -76,7 +76,6 @@
         </fields>
     </config>
     <plugins>
-		<plugin group="finder" plugin="dt_whatsapp_tenants_configswhatsapptenantsconfigs"/>
     </plugins>
     
 

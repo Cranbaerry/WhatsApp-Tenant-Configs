@@ -63,7 +63,7 @@ $canEdit = Dt_whatsapp_tenants_configsHelper::canUserEdit($this->item, $user);
 
             <?php 
                 // Build the callback URL using Joomla's root URL, the ajax API path, and the current user id.
-                $callbackUrl = Uri::root() . 'plugins/ajax/api/' . $user->id;
+                $callbackUrl = Uri::root() . 'index.php?option=com_ajax&plugin=whatsappwebhook&format=json&method=processWebhook&uid=' . $user->id;
             ?>
             <div class="control-group has-success">
                 <label id="jform_callback_url-lbl" for="jform_callback_url" class="required form-label">
